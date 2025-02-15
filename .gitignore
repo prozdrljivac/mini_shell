@@ -1,0 +1,21 @@
+# Compiled binaries
+mini_shell
+
+# Object files
+*.o
+
+# Debugging files
+*.dSYM/
+*.swp
+*.swo
+vgcore.*
+
+# Temporary files
+*.tmp
+*.log
+
+# Core dumps
+core
+
+# Makefile backup files
+Makefile~
