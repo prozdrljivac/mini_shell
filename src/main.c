@@ -1,12 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Maximum command length
+#define MAX_INPUT 256
+
+void shell_loop(void);
 
 int main() {
-  int myFavoriteNumber = 0;
+    printf("Welcome to Mini Shell!\n");
+    printf("Type exit to terminate the program.\n");
+    shell_loop();
+    return 0;
+}
 
-  printf("Please enter your favorite number: \n");
-  scanf("%d", &myFavoriteNumber);
+void shell_loop(void) {
+    char input[MAX_INPUT];
 
+    while (1) {
+        printf("mini-shell> ");
+        if (fgets(input, MAX_INPUT, stdin) == NULL) {
+            printf("\nExiting mini shell.\n");
+            break;
+        }
 
-  printf("Your favorite number is: %d \n", myFavoriteNumber);
-  return 0;
+        input[strcspn(input, "\n")] = '\0';
+
+        if (strcmp(input, "exit") == 0) {
+            printf("Goodbye!\n");
+            break;
+        }
+
+        printf("You entered: %s\n", input);
+    }
 }
