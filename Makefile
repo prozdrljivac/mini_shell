@@ -1,7 +1,7 @@
 # Compiler and Flags
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c11
-SRCS = src/main.c
+SRCS = src/main.c src/shell.c
 OBJS = $(SRCS:.c=.o)
 TARGET = mini_shell
 

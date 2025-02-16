@@ -4,8 +4,11 @@
 
 // Maximum command length
 #define MAX_INPUT 256
+// Maximum number of arguments on the command
+#define MAX_ARGS 11
 
 void shell_loop(void);
+void parse_input(char *input, char **args);
 
 int main() {
     printf("Welcome to Mini Shell!\n");
@@ -16,6 +19,7 @@ int main() {
 
 void shell_loop(void) {
     char input[MAX_INPUT];
+    char *args[MAX_ARGS];
 
     while (1) {
         printf("mini-shell> ");
@@ -31,6 +35,11 @@ void shell_loop(void) {
             break;
         }
 
-        printf("You entered: %s\n", input);
+        parse_input(input, args);
+
+        for (int i = 0; args[i] != NULL; i++) {
+            printf("Arg[%d]: %s\n", i, args[i]);
+        }
     }
 }
+

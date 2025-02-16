@@ -43,8 +43,8 @@ make clean
 
 ## Configuration
 
-The maximum command input size is set to **256** characters for efficiency.
-This is enough for typical shell commands while keeping memory usage minimal.
+- The maximum command input size is set to **256** characters for efficiency.
+- The shell allows up to **10 arguments per command** (11 slots total including `NULL` terminator).
 
 ## License
 
