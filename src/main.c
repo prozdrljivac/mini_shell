@@ -9,6 +9,7 @@
 
 void shell_loop(void);
 void parse_input(char *input, char **args);
+void execute_command(char **args);
 
 int main() {
     printf("Welcome to Mini Shell!\n");
@@ -36,10 +37,7 @@ void shell_loop(void) {
         }
 
         parse_input(input, args);
-
-        for (int i = 0; args[i] != NULL; i++) {
-            printf("Arg[%d]: %s\n", i, args[i]);
-        }
+        execute_command(args);
     }
 }
 
