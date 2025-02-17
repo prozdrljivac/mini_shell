@@ -1,15 +1,10 @@
+#include "builtins.h"
+#include "shell.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// Maximum command length
-#define MAX_INPUT 256
-// Maximum number of arguments on the command
-#define MAX_ARGS 11
-
 void shell_loop(void);
-void parse_input(char *input, char **args);
-void execute_command(char **args);
 
 int main() {
     printf("Welcome to Mini Shell!\n");
@@ -31,12 +26,12 @@ void shell_loop(void) {
 
         input[strcspn(input, "\n")] = '\0';
 
-        if (strcmp(input, "exit") == 0) {
-            printf("Goodbye!\n");
-            break;
+        parse_input(input, args);
+
+        if (handle_builtin_commands(args)) {
+            continue;
         }
 
-        parse_input(input, args);
         execute_command(args);
     }
 }
